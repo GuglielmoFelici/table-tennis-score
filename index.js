@@ -9,18 +9,20 @@ removeButton2 = document.getElementById('remove-point-btn-2')
 
 
 serve = document.getElementById('serve')
-
 winner = undefined
 
-function initPlayer(p) {
-    p.score = 0
-    p.innerText = 0
-    p.adv = false
+function initData() {
+    winner = undefined
+    for (let p of [p1, p2]) {
+        p.score = 0
+        p.adv = false
+    }
+    if (!p1.serving && p2.serving) {
+        switchServe()
+    }
+    p1.serving = true
 }
 
-initPlayer(p1)
-initPlayer(p2)
-p1.serving = true
 
 
 function getOtherPlayer(p) {
@@ -92,6 +94,7 @@ function assignPoint(p) {
         } else {
             p.adv = true
         }
+        switchServe()
     } else {
         p.score++
         if ((p1.score + p2.score) % 5 === 0) {
@@ -122,7 +125,11 @@ function removePoint(p) {
         p.score = Math.max(0, p.score - 1)
     }
     updateView()
+}
 
+function reset() {
+    initData()
+    updateView()
 }
 
 square1.onclick = () => assignPoint(p1)
@@ -134,11 +141,9 @@ removeButton1.onclick = () => {
 removeButton2.onclick = () => {
     removePoint(p2)
 }
-document.getElementById('swap-sides-btn').onclick = () => {
-    switchSides();
-}
-document.getElementById('swap-serve-btn').onclick = () => {
-    switchServe();
-}
+document.getElementById('swap-sides-btn').onclick = switchSides;
+document.getElementById('swap-serve-btn').onclick = switchServe;
+document.getElementById('reset-btn').onclick = reset;
 
+initData()
 updateView()
