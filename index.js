@@ -144,6 +144,11 @@ removeButton2.onclick = () => {
 document.getElementById('swap-sides-btn').onclick = switchSides;
 document.getElementById('swap-serve-btn').onclick = switchServe;
 document.getElementById('reset-btn').onclick = reset;
+for (elem of document.getElementsByClassName('player-name')) {
+    elem.onclick = (event) => {
+        event.stopImmediatePropagation()
+    }
+}
 
 initData()
 updateView()

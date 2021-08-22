@@ -21,6 +21,7 @@ html, body {
 
 #slot-1 {
     /* height:300px; */
+    text-align:center;
     height:100%;
     width:50%; 
     float:left;
@@ -28,6 +29,7 @@ html, body {
 
 #slot-2 {
     /* height:300px; */
+    text-align:center;
     height:100%;
     width:50%;
     float:right;
@@ -80,6 +82,8 @@ button {
 }
 
 .player-name {
+    margin: 10% auto;
     width: 80%;
-    margin: 0 5% 0 5%;
+    height: 10%;
+    /* margin: 0 5% 0 5%; */
 }
