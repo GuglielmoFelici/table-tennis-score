@@ -10,6 +10,7 @@ removeButton2 = document.getElementById('remove-point-btn-2')
 
 serve = document.getElementById('serve')
 winner = undefined
+areSidesSwitched = false
 
 function initData() {
     winner = undefined
@@ -47,6 +48,7 @@ function switchSides() {
     slot2 = document.getElementById('slot-2')
     slot1.style.float = slot1.style.float === 'right' ? 'left' : 'right'
     slot2.style.float = slot2.style.float === 'left' ? 'right' : 'left' // invertiti cosi funziona anche in caso di float undefined
+    areSidesSwitched = !areSidesSwitched
 }
 
 function updateRemoveButtons() {
@@ -152,9 +154,9 @@ for (elem of document.getElementsByClassName('player-name')) {
 
 window.addEventListener("keydown", function (event) {
     if (event.key === 'ArrowLeft') {
-        assignPoint(p1)
+        assignPoint(areSidesSwitched ? p2 : p1)
     } else if (event.key === 'ArrowRight') {
-        assignPoint(p2)
+        assignPoint(areSidesSwitched ? p1 : p2)
     }
 }, true);
 
