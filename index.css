@@ -1,7 +1,18 @@
 html, body {
     margin:0px;
     height:100%;
-  }
+    margin: auto;
+}
+
+@media only screen and (min-width: 600px) {
+    html, body {
+        margin:0px;
+        height:100%;
+        width: 500px;
+        margin: auto;
+        background-color: rgb(70, 70, 70);
+    }
+}
 
 #wrapper {
     overflow: hidden;
