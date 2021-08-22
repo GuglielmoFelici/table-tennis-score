@@ -150,5 +150,13 @@ for (elem of document.getElementsByClassName('player-name')) {
     }
 }
 
+window.addEventListener("keydown", function (event) {
+    if (event.key === 'ArrowLeft') {
+        assignPoint(p1)
+    } else if (event.key === 'ArrowRight') {
+        assignPoint(p2)
+    }
+}, true);
+
 initData()
 updateView()
