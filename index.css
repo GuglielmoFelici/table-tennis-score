@@ -78,3 +78,8 @@ button {
    -moz-user-select: none; /* Firefox */
    -ms-user-select: none; /* Internet Explorer/Edge */
 }
+
+.player-name {
+    width: 80%;
+    margin: 0 5% 0 5%;
+}
